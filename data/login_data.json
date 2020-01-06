@@ -1,0 +1,74 @@
+[
+  {
+    "case_name": "登录成功",
+    "mobile": "13800000002",
+    "password": "123456",
+    "http_code": 200,
+    "success": true,
+    "code": 10000,
+    "message": "操作成功"
+  },
+  {
+    "case_name": "账号不存在",
+    "mobile": "13900000002",
+    "password": "123456",
+    "http_code": 200,
+    "success": false,
+    "code": 20001,
+    "message": "用户名或密码错误"
+  },
+  {
+    "case_name": "密码错误",
+    "mobile": "13900000002",
+    "password": "error",
+    "http_code": 200,
+    "success": false,
+    "code": 20001,
+    "message": "用户名或密码错误"
+  },
+  {
+    "case_name": "账号输入特殊字符",
+    "mobile": "!@#$%^&*()_-+=",
+    "password": "123456",
+    "http_code": 200,
+    "success": false,
+    "code": 20001,
+    "message": "用户名或密码错误"
+  },
+  {
+    "case_name": "密码为空",
+    "mobile": "13800000002",
+    "password": "",
+    "http_code": 200,
+    "success": false,
+    "code": 20001,
+    "message": "用户名或密码错误"
+  },
+  {
+    "case_name": "账号有中文",
+    "mobile": "13800咸鱼000002",
+    "password": "123456",
+    "http_code": 200,
+    "success": false,
+    "code": 20001,
+    "message": "用户名或密码错误"
+  },
+  {
+    "case_name": "账号中间有空格",
+    "mobile": "139000 00002",
+    "password": "123456",
+    "http_code": 200,
+    "success": false,
+    "code": 20001,
+    "message": "用户名或密码错误"
+  },
+  {
+    "case_name": "账号不存在",
+    "mobile": "13900000002",
+    "password": "123456",
+    "http_code": 200,
+    "success": false,
+    "code": 20001,
+    "message": "用户名或密码错误"
+  }
+]

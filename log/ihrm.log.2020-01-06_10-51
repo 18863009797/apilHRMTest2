@@ -1,0 +1,7 @@
+2020-01-06 10:51:22,091 INFO [root] [__init__.py(<module>:11)] - TEST日志器能不能正常工作
+2020-01-06 10:51:22,513 INFO [root] [login.py(test_login:30)] - 登录成功接口返回的数据为：{'code': 10000, 'data': 'f5b9a8f7-acbb-46e8-9a08-59b71f89e860', 'success': True, 'message': '操作成功！'}
+2020-01-06 10:51:22,513 INFO [root] [login.py(test_login:36)] - 保存的令牌是：
+2020-01-06 10:51:22,589 INFO [root] [test_emp.py(test01_add_emp:32)] - 添加员工接口返回数据为：{'code': 10000, 'data': {'id': '1214016572838203392'}, 'success': True, 'message': '操作成功！'}
+2020-01-06 10:51:22,692 INFO [root] [test_emp.py(test02_query_emp:44)] - 查询员工接口的返回数据为：{'code': 10000, 'data': {'formOfManagement': None, 'formOfEmployment': 1, 'password': '25def7eaa2bef9776ea4905e10b8bbec', 'departmentId': '1210411411066695680', 'companyId': '1', 'id': '1214016572838203392', 'staffPhoto': None, 'workingCity': None, 'departmentName': '测试', 'timeOfEntry': '2020-01-06T00:00:00.000+0000', 'roleIds': [], 'username': '日本exrwy', 'mobile': '18756700245', 'createTime': None, 'workNumber': '1234', 'companyName': '传智播客', 'correctionTime': '2020-01-28T16:00:00.000+0000', 'enableState': 1, 'inServiceStatus': None}, 'success': True, 'message': '操作成功！'}
+2020-01-06 10:51:22,798 INFO [root] [test_emp.py(test03_modify_emp:52)] - 修改员工接口的返回数据为：{'code': 99999, 'data': None, 'success': False, 'message': '抱歉，系统繁忙，请稍后重试！'}
+2020-01-06 10:51:22,874 INFO [root] [test_emp.py(test04_delete_emp:60)] - 删除员工接口的返回数据为：{'code': 10000, 'data': None, 'success': True, 'message': '操作成功！'}

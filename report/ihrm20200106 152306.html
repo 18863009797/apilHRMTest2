@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>IHRM人力资源接口测试</title>
+    <meta name="generator" content="HTMLTestRunner 0.8.2"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+<style type="text/css" media="screen">
+body        { font-family: verdana, arial, helvetica, sans-serif; font-size: 80%; }
+table       { font-size: 100%; }
+pre         { }
+
+/* -- heading ---------------------------------------------------------------------- */
+h1 {
+	font-size: 16pt;
+	color: gray;
+}
+.heading {
+    margin-top: 0ex;
+    margin-bottom: 1ex;
+}
+
+.heading .attribute {
+    margin-top: 1ex;
+    margin-bottom: 0;
+}
+
+.heading .description {
+    margin-top: 4ex;
+    margin-bottom: 6ex;
+}
+
+/* -- css div popup ------------------------------------------------------------------------ */
+a.popup_link {
+}
+
+a.popup_link:hover {
+    color: red;
+}
+
+.popup_window {
+    display: none;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    /*border: solid #627173 1px; */
+    padding: 10px;
+    background-color: #E6E6D6;
+    font-family: "Lucida Console", "Courier New", Courier, monospace;
+    text-align: left;
+    font-size: 8pt;
+    width: 500px;
+}
+
+}
+/* -- report ------------------------------------------------------------------------ */
+#show_detail_line {
+    margin-top: 3ex;
+    margin-bottom: 1ex;
+}
+#result_table {
+    width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #777;
+}
+#header_row {
+    font-weight: bold;
+    color: white;
+    background-color: #777;
+}
+#result_table td {
+    border: 1px solid #777;
+    padding: 2px;
+}
+#total_row  { font-weight: bold; }
+.passClass  { background-color: #6c6; }
+.failClass  { background-color: #c60; }
+.errorClass { background-color: #c00; }
+.passCase   { color: #6c6; }
+.failCase   { color: #c60; font-weight: bold; }
+.errorCase  { color: #c00; font-weight: bold; }
+.hiddenRow  { display: none; }
+.testcase   { margin-left: 2em; }
+
+
+/* -- ending ---------------------------------------------------------------------- */
+#ending {
+}
+
+</style>
+
+</head>
+<body>
+<script language="javascript" type="text/javascript"><!--
+output_list = Array();
+
+/* level - 0:Summary; 1:Failed; 2:All */
+function showCase(level) {
+    trs = document.getElementsByTagName("tr");
+    for (var i = 0; i < trs.length; i++) {
+        tr = trs[i];
+        id = tr.id;
+        if (id.substr(0,2) == 'ft') {
+            if (level < 1) {
+                tr.className = 'hiddenRow';
+            }
+            else {
+                tr.className = '';
+            }
+        }
+        if (id.substr(0,2) == 'pt') {
+            if (level > 1) {
+                tr.className = '';
+            }
+            else {
+                tr.className = 'hiddenRow';
+            }
+        }
+    }
+}
+
+
+function showClassDetail(cid, count) {
+    var id_list = Array(count);
+    var toHide = 1;
+    for (var i = 0; i < count; i++) {
+        tid0 = 't' + cid.substr(1) + '.' + (i+1);
+        tid = 'f' + tid0;
+        tr = document.getElementById(tid);
+        if (!tr) {
+            tid = 'p' + tid0;
+            tr = document.getElementById(tid);
+        }
+        id_list[i] = tid;
+        if (tr.className) {
+            toHide = 0;
+        }
+    }
+    for (var i = 0; i < count; i++) {
+        tid = id_list[i];
+        if (toHide) {
+            document.getElementById('div_'+tid).style.display = 'none'
+            document.getElementById(tid).className = 'hiddenRow';
+        }
+        else {
+            document.getElementById(tid).className = '';
+        }
+    }
+}
+
+
+function showTestDetail(div_id){
+    var details_div = document.getElementById(div_id)
+    var displayState = details_div.style.display
+    // alert(displayState)
+    if (displayState != 'block' ) {
+        displayState = 'block'
+        details_div.style.display = 'block'
+    }
+    else {
+        details_div.style.display = 'none'
+    }
+}
+
+
+function html_escape(s) {
+    s = s.replace(/&/g,'&amp;');
+    s = s.replace(/</g,'&lt;');
+    s = s.replace(/>/g,'&gt;');
+    return s;
+}
+
+/* obsoleted by detail in <div>
+function showOutput(id, name) {
+    var w = window.open("", //url
+                    name,
+                    "resizable,scrollbars,status,width=800,height=450");
+    d = w.document;
+    d.write("<pre>");
+    d.write(html_escape(output_list[id]));
+    d.write("\n");
+    d.write("<a href='javascript:window.close()'>close</a>\n");
+    d.write("</pre>\n");
+    d.close();
+}
+*/
+--></script>
+
+<div class='heading'>
+<h1>IHRM人力资源接口测试</h1>
+<p class='attribute'><strong>Start Time:</strong> 2020-01-06 15:23:06</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:42.192793</p>
+<p class='attribute'><strong>Status:</strong> Error 5</p>
+
+<p class='description'>V1.0.0</p>
+</div>
+
+
+
+<p id='show_detail_line'>Show
+<a href='javascript:showCase(0)'>Summary</a>
+<a href='javascript:showCase(1)'>Failed</a>
+<a href='javascript:showCase(2)'>All</a>
+</p>
+<table id='result_table'>
+<colgroup>
+<col align='left' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+<col align='right' />
+</colgroup>
+<tr id='header_row'>
+    <td>Test Group/Test case</td>
+    <td>Count</td>
+    <td>Pass</td>
+    <td>Fail</td>
+    <td>Error</td>
+    <td>View</td>
+</tr>
+
+<tr class='errorClass'>
+    <td>script.login.Login</td>
+    <td>1</td>
+    <td>0</td>
+    <td>0</td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+</tr>
+
+<tr id='ft1.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test_login</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        error</a>
+
+    <div id='div_ft1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.1: Traceback (most recent call last):
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\util\connection.py", line 80, in create_connection
+    raise err
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\util\connection.py", line 70, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\connectionpool.py", line 603, in urlopen
+    chunked=chunked)
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\connectionpool.py", line 355, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "G:\Python35\lib\http\client.py", line 1107, in request
+    self._send_request(method, url, body, headers)
+  File "G:\Python35\lib\http\client.py", line 1152, in _send_request
+    self.endheaders(body)
+  File "G:\Python35\lib\http\client.py", line 1103, in endheaders
+    self._send_output(message_body)
+  File "G:\Python35\lib\http\client.py", line 934, in _send_output
+    self.send(msg)
+  File "G:\Python35\lib\http\client.py", line 877, in send
+    self.connect()
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\connection.py", line 183, in connect
+    conn = self._new_conn()
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\connection.py", line 169, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x0000019704DB0AC8&gt;: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\Python35\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\connectionpool.py", line 641, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\util\retry.py", line 399, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='182.92.81.159', port=80): Max retries exceeded with url: /api/sys/login (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019704DB0AC8&gt;: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\PycharmProjects\apilHRMTest2\script\login.py", line 26, in test_login
+    response = self.login_api.login('13800000002', '123456')
+  File "G:\PycharmProjects\apilHRMTest2\api\login_api.py", line 18, in login
+    response = requests.post(self.login_url, json=data, headers=self.headers)
+  File "G:\Python35\lib\site-packages\requests\api.py", line 116, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "G:\Python35\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "G:\Python35\lib\site-packages\requests\sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "G:\Python35\lib\site-packages\requests\sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "G:\Python35\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='182.92.81.159', port=80): Max retries exceeded with url: /api/sys/login (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019704DB0AC8&gt;: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。',))
+Traceback (most recent call last):
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\util\connection.py", line 80, in create_connection
+    raise err
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\util\connection.py", line 70, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\connectionpool.py", line 603, in urlopen
+    chunked=chunked)
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\connectionpool.py", line 355, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "G:\Python35\lib\http\client.py", line 1107, in request
+    self._send_request(method, url, body, headers)
+  File "G:\Python35\lib\http\client.py", line 1152, in _send_request
+    self.endheaders(body)
+  File "G:\Python35\lib\http\client.py", line 1103, in endheaders
+    self._send_output(message_body)
+  File "G:\Python35\lib\http\client.py", line 934, in _send_output
+    self.send(msg)
+  File "G:\Python35\lib\http\client.py", line 877, in send
+    self.connect()
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\connection.py", line 183, in connect
+    conn = self._new_conn()
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\connection.py", line 169, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x0000019704DB0AC8&gt;: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\Python35\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\connectionpool.py", line 641, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\util\retry.py", line 399, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='182.92.81.159', port=80): Max retries exceeded with url: /api/sys/login (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019704DB0AC8&gt;: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\PycharmProjects\apilHRMTest2\script\login.py", line 26, in test_login
+    response = self.login_api.login('13800000002', '123456')
+  File "G:\PycharmProjects\apilHRMTest2\api\login_api.py", line 18, in login
+    response = requests.post(self.login_url, json=data, headers=self.headers)
+  File "G:\Python35\lib\site-packages\requests\api.py", line 116, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "G:\Python35\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "G:\Python35\lib\site-packages\requests\sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "G:\Python35\lib\site-packages\requests\sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "G:\Python35\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='182.92.81.159', port=80): Max retries exceeded with url: /api/sys/login (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019704DB0AC8&gt;: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='errorClass'>
+    <td>script.test_emp.TestIHRMEmp</td>
+    <td>4</td>
+    <td>0</td>
+    <td>0</td>
+    <td>4</td>
+    <td><a href="javascript:showClassDetail('c2',4)">Detail</a></td>
+</tr>
+
+<tr id='ft2.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test01_add_emp_0__xxx11</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.1')" >
+        error</a>
+
+    <div id='div_ft2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.1: Traceback (most recent call last):
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\util\connection.py", line 80, in create_connection
+    raise err
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\util\connection.py", line 70, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\connectionpool.py", line 603, in urlopen
+    chunked=chunked)
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\connectionpool.py", line 355, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "G:\Python35\lib\http\client.py", line 1107, in request
+    self._send_request(method, url, body, headers)
+  File "G:\Python35\lib\http\client.py", line 1152, in _send_request
+    self.endheaders(body)
+  File "G:\Python35\lib\http\client.py", line 1103, in endheaders
+    self._send_output(message_body)
+  File "G:\Python35\lib\http\client.py", line 934, in _send_output
+    self.send(msg)
+  File "G:\Python35\lib\http\client.py", line 877, in send
+    self.connect()
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\connection.py", line 183, in connect
+    conn = self._new_conn()
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\connection.py", line 169, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x0000019704DCCDA0&gt;: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\Python35\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\connectionpool.py", line 641, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\util\retry.py", line 399, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='172.17.64.191', port=9002): Max retries exceeded with url: /autherror?code=1 (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019704DCCDA0&gt;: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\Python35\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "G:\PycharmProjects\apilHRMTest2\script\test_emp.py", line 30, in test01_add_emp
+    response = self.emp_api.add_emp(username, mobile)
+  File "G:\PycharmProjects\apilHRMTest2\api\emp_api.py", line 23, in add_emp
+    response = requests.post(self.emp_url, json=data, headers=self.henders)
+  File "G:\Python35\lib\site-packages\requests\api.py", line 116, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "G:\Python35\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "G:\Python35\lib\site-packages\requests\sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "G:\Python35\lib\site-packages\requests\sessions.py", line 668, in send
+    history = [resp for resp in gen] if allow_redirects else []
+  File "G:\Python35\lib\site-packages\requests\sessions.py", line 668, in &lt;listcomp&gt;
+    history = [resp for resp in gen] if allow_redirects else []
+  File "G:\Python35\lib\site-packages\requests\sessions.py", line 247, in resolve_redirects
+    **adapter_kwargs
+  File "G:\Python35\lib\site-packages\requests\sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "G:\Python35\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='172.17.64.191', port=9002): Max retries exceeded with url: /autherror?code=1 (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019704DCCDA0&gt;: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。',))
+Traceback (most recent call last):
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\connection.py", line 160, in _new_conn
+    (self._dns_host, self.port), self.timeout, **extra_kw)
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\util\connection.py", line 80, in create_connection
+    raise err
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\util\connection.py", line 70, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\connectionpool.py", line 603, in urlopen
+    chunked=chunked)
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\connectionpool.py", line 355, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "G:\Python35\lib\http\client.py", line 1107, in request
+    self._send_request(method, url, body, headers)
+  File "G:\Python35\lib\http\client.py", line 1152, in _send_request
+    self.endheaders(body)
+  File "G:\Python35\lib\http\client.py", line 1103, in endheaders
+    self._send_output(message_body)
+  File "G:\Python35\lib\http\client.py", line 934, in _send_output
+    self.send(msg)
+  File "G:\Python35\lib\http\client.py", line 877, in send
+    self.connect()
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\connection.py", line 183, in connect
+    conn = self._new_conn()
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\connection.py", line 169, in _new_conn
+    self, "Failed to establish a new connection: %s" % e)
+urllib3.exceptions.NewConnectionError: &lt;urllib3.connection.HTTPConnection object at 0x0000019704DCCDA0&gt;: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\Python35\lib\site-packages\requests\adapters.py", line 449, in send
+    timeout=timeout
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\connectionpool.py", line 641, in urlopen
+    _stacktrace=sys.exc_info()[2])
+  File "G:\Python35\lib\site-packages\urllib3-1.25.3-py3.5.egg\urllib3\util\retry.py", line 399, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='172.17.64.191', port=9002): Max retries exceeded with url: /autherror?code=1 (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019704DCCDA0&gt;: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。',))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\Python35\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "G:\PycharmProjects\apilHRMTest2\script\test_emp.py", line 30, in test01_add_emp
+    response = self.emp_api.add_emp(username, mobile)
+  File "G:\PycharmProjects\apilHRMTest2\api\emp_api.py", line 23, in add_emp
+    response = requests.post(self.emp_url, json=data, headers=self.henders)
+  File "G:\Python35\lib\site-packages\requests\api.py", line 116, in post
+    return request('post', url, data=data, json=json, **kwargs)
+  File "G:\Python35\lib\site-packages\requests\api.py", line 60, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "G:\Python35\lib\site-packages\requests\sessions.py", line 533, in request
+    resp = self.send(prep, **send_kwargs)
+  File "G:\Python35\lib\site-packages\requests\sessions.py", line 668, in send
+    history = [resp for resp in gen] if allow_redirects else []
+  File "G:\Python35\lib\site-packages\requests\sessions.py", line 668, in &lt;listcomp&gt;
+    history = [resp for resp in gen] if allow_redirects else []
+  File "G:\Python35\lib\site-packages\requests\sessions.py", line 247, in resolve_redirects
+    **adapter_kwargs
+  File "G:\Python35\lib\site-packages\requests\sessions.py", line 646, in send
+    r = adapter.send(request, **kwargs)
+  File "G:\Python35\lib\site-packages\requests\adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='172.17.64.191', port=9002): Max retries exceeded with url: /autherror?code=1 (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000019704DCCDA0&gt;: Failed to establish a new connection: [WinError 10060] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。',))
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test02_query_emp_0</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.2')" >
+        error</a>
+
+    <div id='div_ft2.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.2: Traceback (most recent call last):
+  File "G:\Python35\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "G:\PycharmProjects\apilHRMTest2\script\test_emp.py", line 44, in test02_query_emp
+    response = self.emp_api.query_emp()
+  File "G:\PycharmProjects\apilHRMTest2\api\emp_api.py", line 31, in query_emp
+    url = self.emp_url + "/" + app.EMP_ID
+TypeError: Can't convert 'int' object to str implicitly
+Traceback (most recent call last):
+  File "G:\Python35\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "G:\PycharmProjects\apilHRMTest2\script\test_emp.py", line 44, in test02_query_emp
+    response = self.emp_api.query_emp()
+  File "G:\PycharmProjects\apilHRMTest2\api\emp_api.py", line 31, in query_emp
+    url = self.emp_url + "/" + app.EMP_ID
+TypeError: Can't convert 'int' object to str implicitly
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test03_modify_emp_0__</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.3')" >
+        error</a>
+
+    <div id='div_ft2.3' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.3').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.3: Traceback (most recent call last):
+  File "G:\Python35\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "G:\PycharmProjects\apilHRMTest2\script\test_emp.py", line 55, in test03_modify_emp
+    response = self.emp_api.modify_emp(username)
+  File "G:\PycharmProjects\apilHRMTest2\api\emp_api.py", line 37, in modify_emp
+    url = self.emp_url + '/' + app.EMP_ID
+TypeError: Can't convert 'int' object to str implicitly
+Traceback (most recent call last):
+  File "G:\Python35\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "G:\PycharmProjects\apilHRMTest2\script\test_emp.py", line 55, in test03_modify_emp
+    response = self.emp_api.modify_emp(username)
+  File "G:\PycharmProjects\apilHRMTest2\api\emp_api.py", line 37, in modify_emp
+    url = self.emp_url + '/' + app.EMP_ID
+TypeError: Can't convert 'int' object to str implicitly
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test04_delete_emp_0</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.4')" >
+        error</a>
+
+    <div id='div_ft2.4' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft2.4').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft2.4: Traceback (most recent call last):
+  File "G:\Python35\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "G:\PycharmProjects\apilHRMTest2\script\test_emp.py", line 91, in test04_delete_emp
+    response = self.emp_api.delete_emp()
+  File "G:\PycharmProjects\apilHRMTest2\api\emp_api.py", line 44, in delete_emp
+    url=self.emp_url+'/'+app.EMP_ID
+TypeError: Can't convert 'int' object to str implicitly
+Traceback (most recent call last):
+  File "G:\Python35\lib\site-packages\parameterized\parameterized.py", line 518, in standalone_func
+    return func(*(a + p.args), **p.kwargs)
+  File "G:\PycharmProjects\apilHRMTest2\script\test_emp.py", line 91, in test04_delete_emp
+    response = self.emp_api.delete_emp()
+  File "G:\PycharmProjects\apilHRMTest2\api\emp_api.py", line 44, in delete_emp
+    url=self.emp_url+'/'+app.EMP_ID
+TypeError: Can't convert 'int' object to str implicitly
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='total_row'>
+    <td>Total</td>
+    <td>5</td>
+    <td>0</td>
+    <td>0</td>
+    <td>5</td>
+    <td>&nbsp;</td>
+</tr>
+</table>
+
+<div id='ending'>&nbsp;</div>
+
+</body>
+</html>

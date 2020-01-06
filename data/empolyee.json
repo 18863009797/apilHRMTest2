@@ -1,0 +1,29 @@
+{
+  "add_emp": {
+    "username": "强哥xxx11",
+    "mobile": "15566677788",
+    "success": true,
+    "code": 10000,
+    "message": "操作成功",
+    "http_code": 200
+  },
+  "query_emp": {
+    "success": true,
+    "code": 10000,
+    "message": "操作成功",
+    "http_code": 200
+  },
+  "modify_emp": {
+    "username": "大哥",
+    "success": true,
+    "code": 10000,
+    "message": "操作成功",
+    "http_code": 200
+  },
+  "delete_emp": {
+    "success": true,
+    "code": 10000,
+    "message": "操作成功",
+    "http_code": 200
+  }
+}
